@@ -1,0 +1,21 @@
+{
+  "files.associations": {
+    "stdio.h": "c",
+    "windows.h": "c",
+    "string.h": "c"
+  },
+  "github.copilot.advanced": {
+    // "enable": true,
+    "enableAutoComplete": false
+    // "enableAutoImport": true,
+    // "enableCodeReview": true,
+    // "enableCodeSuggestion": true,
+    // "enableCodeRefactor": true,
+    // "enableCodeExplain": true,
+    // "enableCodeTest": true,
+    // "enableCodeDebug": true,
+    // "enableCodeSearch": true,
+    // "enableCodeTranslate": true
+  },
+  "C_Cpp.errorSquiggles": "disabled"
+}

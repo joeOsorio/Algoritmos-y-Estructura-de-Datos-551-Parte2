@@ -1,0 +1,15 @@
+{
+	"ColasHeader": {
+	  "prefix": "header",
+	  "body": [
+      "#ifndef ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_INCLUDED",
+      "#define ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_INCLUDED",
+      "",
+      "\t${0:}",
+      "",
+      "#endif // ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_INCLUDED"
+    ],
+    "description": "Plantilla para un archivo de encabezado de colas en C."
+  }
+  }
+  
