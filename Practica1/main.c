@@ -22,8 +22,8 @@ int busquedaLineal(int arr[], int n, int bus);
 int busquedaBinaria(int arreglo[], int n, int llave);
 
 /* Métosdes de ordenamiento */
-void ordLineal(int arr[], int n);
 void ordInsercion(int arr[], int n);
+void ordSeleccion(int arr[], int n);
 void ordBurbuja(int arr[], int n);
 
 /* funciones de arreglos */
@@ -41,8 +41,8 @@ int main(void)
         printf("\n   1. Búsqueda Lineal");
         printf("\n   2. Búsqueda Binaria");
         printf("\n   3. Ordenamiento por Selección");
-        printf("\n   4. Ordenamiento Lineal");
-        printf("\n   5. Ordenamiento inserción");
+        printf("\n   4. Ordenamiento inserción");
+        printf("\n   5. Ordenamiento burbuja");
         printf("\n   6. Salir.");
 
         /* Filtramos la opción elegida por el usuario */
@@ -101,7 +101,7 @@ int main(void)
             liberarArrInt(&arr);
             break;
         case 4:
-            printf("\n  Ordenamiento Lineal");
+            printf("\n  Ordenamiento por inserción");
             printf("\n   Ingresa el tamaño del arrego:");
             scanf("%d", &n);
             CrearArrInt(&arr, n);
@@ -109,7 +109,7 @@ int main(void)
             llenarArrInt(arr, n);
             printf("\n   Arreglo original: \n");
             imprimirArrInt(arr, n);
-            ordLineal(arr, n);
+            ordInsercion(arr, n);
             printf("\n   Arreglo ordenado: \n");
             imprimirArrInt(arr, n);
             liberarArrInt(&arr);
@@ -133,7 +133,7 @@ int main(void)
             break;
         }
 
-    } while (opcion != 4);
+    } while (opcion != 6);
 
     return 0;
 }
@@ -147,7 +147,7 @@ int main(void)
     llenarArrInt(arr, n);
     imprimirArrInt(arr, n);
     ordInsercion(arr, n); */
-/* ordLineal(arr, n); */
+/* ordSeleccion(arr, n); */
 /* ordBurbuja(arr, n); */
 /* busquedaLineal(arr, n); */
 /* printf("pos: %d\n", busquedaBinaria(arr, n, 3)); */
@@ -203,27 +203,10 @@ int busquedaBinaria(int arreglo[], int n, int llave)
 }
 /* metodos de ordenamiento */
 
-void ordLineal(int arr[], int n)
+void ordSeleccion(int arr[], int n)
 {
-    int i, j, temp;
+    int i, j, menor, temp, pos = -1;
     for (i = 0; i < n - 1; i++)
-    {
-        for (j = 0; j < n - i - 1; j++)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
-
-void ordInsercion(int arr[], int n)
-{
-    int i, j, menor, temp, pos;
-    for (i = 0; i < n; i++)
     {
         menor = arr[i];
         pos = i;
@@ -238,6 +221,28 @@ void ordInsercion(int arr[], int n)
         temp = arr[i];
         arr[i] = menor;
         arr[pos] = temp;
+    }
+}
+
+void ordInsercion(int arr[], int n)
+{
+    int i, j, actual;
+    for (i = 1; i < n; i++)
+    {
+        actual = arr[i];
+
+        j = i - 1;
+        /* while (j >= 0 && arr[j] > actual)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = actual; */
+        for (j = i - 1; j <= n && arr[j] > actual; j--)
+        {
+            arr[j + 1] = arr[j];
+        }
+        arr[j + 1] = actual;
     }
 }
 

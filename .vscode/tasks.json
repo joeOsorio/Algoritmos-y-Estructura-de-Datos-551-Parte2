@@ -1,43 +1,118 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "type": "cppbuild",
-      "label": "C/C++: Compilación con (C90 estricto)",
-      "command": "C:/Strawberry/c/bin/gcc.exe",
-      "args": [
-        "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "-std=c90",
-        "-Wall",
-        "-Werror",
-        "-Wextra",
-        "-Wpedantic",
-        "-Wstrict-prototypes",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}.exe"
-      ],
-      "options": { "cwd": "${fileDirname}" },
-      "problemMatcher": ["$gcc"],
-      "group": { "kind": "build", "isDefault": true },
-      "detail": "Compilación estricta con warnings habilitados (C90)"
-    },
-    {
-      "type": "cppbuild",
-      "label": "C/C++: Compilación básica",
-      "command": "C:/Strawberry/c/bin/gcc.exe",
-      "args": [
-        "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}.exe"
-      ],
-      "options": { "cwd": "${fileDirname}" },
-      "problemMatcher": ["$gcc"],
-      "group": "build",
-      "detail": "Compilación básica sin flags estrictos"
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: Compilación con (C90 estricto)",
+            "command": "C:/Strawberry/c/bin/gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-std=c90",
+                "-Wall",
+                "-Werror",
+                "-Wextra",
+                "-Wpedantic",
+                "-Wstrict-prototypes",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compilación estricta con warnings habilitados (C90)"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: Compilación básica",
+            "command": "C:/Strawberry/c/bin/gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Compilación básica sin flags estrictos"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc-13 compilar archivo activo",
+            "command": "/usr/bin/gcc-13",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Tarea generada por el depurador."
+        },{
+            "type": "cppbuild",
+            "label": "C/C++: Compilación con (C90 estricto - Linux)",
+            "command": "/usr/bin/gcc-13",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-std=c90",
+                "-Wall",
+                "-Werror",
+                "-Wextra",
+                "-Wpedantic",
+                "-Wstrict-prototypes",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compilación estricta con warnings habilitados (C90) en Linux"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: Compilación básica (Linux)",
+            "command": "/usr/bin/gcc-13",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+            "detail": "Compilación básica sin flags estrictos (Linux)"
+        }
+    ]
 }

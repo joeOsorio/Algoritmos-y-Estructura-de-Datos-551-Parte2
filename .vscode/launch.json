@@ -1,65 +1,125 @@
 {
-  "version": "2.0.0",
-  "configurations": [
-    
-    {
-      "name": "Depuración C (GCC/GDB) - Estricta",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [
+    "version": "2.0.0",
+    "configurations": [
         {
-          "name": "PATH",
-          "value": "${env:PATH};C:/Strawberry/c/bin"
-        }
-      ],
-      "externalConsole": true,
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:/Strawberry/c/bin/gdb.exe",
-      "preLaunchTask": "C/C++: Compilación con (C90 estricto)",
-      "setupCommands": [
-        {
-          "description": "Pretty printing",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
+            "name": "Depuración C (GCC/GDB) - Estricta",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "${env:PATH};C:/Strawberry/c/bin"
+                }
+            ],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Strawberry/c/bin/gdb.exe",
+            "preLaunchTask": "C/C++: Compilación con (C90 estricto)",
+            "setupCommands": [
+                {
+                    "description": "Pretty printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Sintaxis Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Mostrar registros",
+                    "text": "-gdb-set print registers on",
+                    "ignoreFailures": true
+                }
+            ],
+            "visualizerFile": "${workspaceFolder}/.vscode/natvis/standard.natvis",
+            "showDisplayString": true
         },
         {
-          "description": "Sintaxis Intel",
-          "text": "-gdb-set disassembly-flavor intel",
-          "ignoreFailures": true
+            "name": "Depuración C (GCC/GDB) - Rápida",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Strawberry/c/bin/gdb.exe",
+            "preLaunchTask": "C/C++: Compilación básica",
+            "setupCommands": [
+                {
+                    "description": "Pretty printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         },
         {
-          "description": "Mostrar registros",
-          "text": "-gdb-set print registers on",
-          "ignoreFailures": true
-        }
-      ],
-      "visualizerFile": "${workspaceFolder}/.vscode/natvis/standard.natvis",
-      "showDisplayString": true
-    },
-    {
-      "name": "Depuración C (GCC/GDB) - Rápida",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:/Strawberry/c/bin/gdb.exe",
-      "preLaunchTask": "C/C++: Compilación básica",
-      "setupCommands": [
+            "name": "C/C++: gcc-13 Compilar y depurar el archivo activo (linux)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Habilitar la impresión con sangría para gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Establecer tipo de desensamblado en Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc-13 compilar archivo activo",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },{
+          "name": "Depuración C (GCC/GDB) - Estricta (Linux)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C/C++: Compilación con (C90 estricto - Linux)",
+            "setupCommands": [
+                { "description": "Pretty printing", "text": "-enable-pretty-printing", "ignoreFailures": true },
+                { "description": "Sintaxis Intel", "text": "-gdb-set disassembly-flavor intel", "ignoreFailures": true },
+                { "description": "Mostrar registros", "text": "-gdb-set print registers on", "ignoreFailures": true }
+            ]
+        },
         {
-          "description": "Pretty printing",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
+            "name": "Depuración C (GCC/GDB) - Rápida (Linux)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C/C++: Compilación básica (Linux)",
+            "setupCommands": [
+                { "description": "Pretty printing", "text": "-enable-pretty-printing", "ignoreFailures": true }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

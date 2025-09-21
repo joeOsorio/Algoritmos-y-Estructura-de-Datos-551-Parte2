@@ -5,8 +5,8 @@
     "string.h": "c"
   },
   "github.copilot.advanced": {
-    // "enable": true,
-    "enableAutoComplete": false
+    "enable": true,
+    "enableAutoComplete": true
     // "enableAutoImport": true,
     // "enableCodeReview": true,
     // "enableCodeSuggestion": true,
