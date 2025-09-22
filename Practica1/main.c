@@ -45,14 +45,13 @@ int main(void)
         printf("\n   5. Ordenamiento burbuja");
         printf("\n   6. Salir.");
 
-        /* Filtramos la opción elegida por el usuario */
+        /* Filtramos la opción elegida por el usuario sólo puede ser 1 al 6*/
         do
         {
             printf("\n   Introduzca opci%cn (1-6): ", 162);
             scanf("%d", &opcion);
 
         } while (opcion < 1 || opcion > 7);
-        /* La opción sólo puede ser 1 al 6 */
 
         switch (opcion)
         {
@@ -137,48 +136,22 @@ int main(void)
 
     return 0;
 }
-/*
-int main(void)
-{
-
-    printf("Ingrese el tamaño del arreglo: ");
-    scanf("%d", &n);
-    CrearArrInt(&arr, n);
-    llenarArrInt(arr, n);
-    imprimirArrInt(arr, n);
-    ordInsercion(arr, n); */
-/* ordSeleccion(arr, n); */
-/* ordBurbuja(arr, n); */
-/* busquedaLineal(arr, n); */
-/* printf("pos: %d\n", busquedaBinaria(arr, n, 3)); */
-/* printf("\nArreglo ordenado: \n"); */
-/* imprimirArrInt(arr, n); */
-/* return 0; } */
 
 /* Métodos de Busqueda */
 int busquedaLineal(int arr[], int n, int bus)
 {
     int i;
-    /* printf("Ingrese el numero a buscar: ");
-    scanf("%d", &bus); */
     for (i = 0; i < n; i++)
     {
         if (arr[i] == bus)
         {
-            /* printf("El numero %d se encuentra en la posicion %d del arreglo\n", bus, i); */
             return i;
-            /* flag = 1; */
-            break;
         }
     }
-    /* if (flag == 0)
-    { */
     return -1;
-    /* printf("El numero %d no se encuentra en el arreglo\n", bus); */
-    /* } */
 }
 
-int busquedaBinaria(int arreglo[], int n, int llave)
+int busquedaBinaria(int arr[], int n, int bus)
 {
     int izq = 0, der = n - 1, centro;
 
@@ -186,11 +159,11 @@ int busquedaBinaria(int arreglo[], int n, int llave)
     {
         centro = (izq + der) / 2;
 
-        if (arreglo[centro] == llave)
+        if (arr[centro] == bus)
         {
             return centro;
         }
-        else if (llave > arreglo[centro])
+        else if (bus > arr[centro])
         {
             izq = centro + 1;
         }
@@ -232,12 +205,6 @@ void ordInsercion(int arr[], int n)
         actual = arr[i];
 
         j = i - 1;
-        /* while (j >= 0 && arr[j] > actual)
-        {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = actual; */
         for (j = i - 1; j <= n && arr[j] > actual; j--)
         {
             arr[j + 1] = arr[j];
@@ -274,6 +241,7 @@ void liberarArrInt(int **arr)
     free(*arr);
     *arr = NULL;
 }
+
 void llenarArrInt(int *arr, int n)
 {
     int i, m;
