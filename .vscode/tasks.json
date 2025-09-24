@@ -84,7 +84,7 @@
                 "-Wpedantic",
                 "-Wstrict-prototypes",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/output/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -94,7 +94,13 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Compilación estricta con warnings habilitados (C90) en Linux"
+            "detail": "Compilación estricta con warnings habilitados (C90) en Linux",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "dependsOn": ["Crear carpeta output"]
         },
         {
             "type": "cppbuild",
@@ -105,14 +111,27 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/output/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
             "problemMatcher": ["$gcc"],
             "group": "build",
-            "detail": "Compilación básica sin flags estrictos (Linux)"
+            "detail": "Compilación básica sin flags estrictos (Linux)",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "dependsOn": ["Crear carpeta output"]
+        },
+        {
+            "type": "shell",
+            "label": "Crear carpeta output",
+            "command": "mkdir",
+            "args": ["-p", "${fileDirname}/output"],
+            "problemMatcher": []
         }
     ]
 }

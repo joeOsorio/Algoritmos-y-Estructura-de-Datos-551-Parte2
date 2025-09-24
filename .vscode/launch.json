@@ -86,10 +86,10 @@
             "preLaunchTask": "C/C++: gcc-13 compilar archivo activo",
             "miDebuggerPath": "/usr/bin/gdb"
         },{
-          "name": "Depuración C (GCC/GDB) - Estricta (Linux)",
+            "name": "Depuración C (GCC/GDB) - Estricta (Linux)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "program": "${fileDirname}/output/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
@@ -108,7 +108,7 @@
             "name": "Depuración C (GCC/GDB) - Rápida (Linux)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "program": "${fileDirname}/output/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
